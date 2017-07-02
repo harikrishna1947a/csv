@@ -175,7 +175,11 @@ CSV files of various types.
     <!-- Separates the unit tests from the integration tests. -->
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
-
+  <configuration>
+                <!-- Show 100% of the lines from the stack trace (doesn't work) -->
+       <trimStackTrace>false</trimStackTrace>
+    </configuration>
+		    
     <executions>
        <execution>
           <id>unit-tests</id>
