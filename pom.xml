@@ -170,6 +170,7 @@ CSV files of various types.
         </configuration>
       </plugin>
       
+	   
 	    <plugin>
     <!-- Separates the unit tests from the integration tests. -->
     <groupId>org.apache.maven.plugins</groupId>
@@ -196,27 +197,15 @@ CSV files of various types.
              </includes>
              <excludes>
                <!-- Exclude integration tests within (unit) test phase. -->
-                <exclude>**/*IntegrationTests.java</exclude>
+                <exclude>**/perf/PerformanceTest.java</exclude>
             </excludes>
           </configuration>
        </execution>
-       <execution>
-          <id>integration-tests</id>
-          <phase>integration-test</phase>
-          <goals>
-             <goal>test</goal>
-          </goals>
-          <configuration>
-            <!-- Never skip running the tests when the integration-test phase is invoked -->
-             <skip>false</skip>
-             <includes>
-               <!-- Include integration tests within integration-test phase. -->
-               <include>**/*IntegrationTests.java</include>
-             </includes>
-          </configuration>
-       </execution>
+       
     </executions>
   </plugin>
+	    
+	    
 	    
       <!-- Allow checkstyle to be run interactively; keep in sync with report config below -->
       <plugin>
