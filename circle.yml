@@ -1,7 +1,3 @@
-
 test:
-pre:
-override:
-    - "true"
- post:
-   - nosetests
+  override:
+    - echo "done"
