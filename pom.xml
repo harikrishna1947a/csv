@@ -171,37 +171,32 @@ CSV files of various types.
       </plugin>
       
 	   
-	    <plugin>
+	  <plugin>
     <!-- Separates the unit tests from the integration tests. -->
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
-  <configuration>
-            <skipTests>true</skipTests>
-    </configuration>  
-  </plugin>
-	    <plugin>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.19</version>
-				<configuration>
-					<includes>
-						<include>**/*Test.java</include>
-					</includes>
-					  <excludes>
-            <exclude>**/perf/PerformanceTest.java</exclude>
-          </excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-	    
-	    
-	    
+    <configuration>
+       <!-- Skip the default running of this plug-in -->
+       <skip>true</skip>
+    </configuration>
+    <executions>
+       <execution>
+          <id>unit-tests</id>
+          <phase>test</phase>
+          <goals>
+             <goal>test</goal>
+          </goals>
+          <configuration>
+                <!-- Never skip running the tests when the test phase is invoked -->
+                <skip>false</skip>
+            <excludes>
+               <exclude>**/perf/PerformanceTest.java</exclude>
+            </excludes>
+          </configuration>
+       </execution>
+       
+    </executions>
+  </plugin>    
 	    
 	    
       <!-- Allow checkstyle to be run interactively; keep in sync with report config below -->
