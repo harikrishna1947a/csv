@@ -177,31 +177,30 @@ CSV files of various types.
     <artifactId>maven-surefire-plugin</artifactId>
   <configuration>
             <skipTests>true</skipTests>
-    </configuration>
-		    
-    <executions>
-       <execution>
-          <id>unit-tests</id>
-          <phase>test</phase>
-          <goals>
-             <goal>test</goal>
-          </goals>
-          <configuration>
-                <!-- Never skip running the tests when the test phase is invoked -->
-                <skip>false</skip>
-             <includes>
-                   <!-- Include unit tests within integration-test phase. -->
-                <include>**/*Tests.java</include>
-             </includes>
-             <excludes>
-               <!-- Exclude integration tests within (unit) test phase. -->
-                <exclude>**/perf/PerformanceTest.java</exclude>
-            </excludes>
-          </configuration>
-       </execution>
-       
-    </executions>
+    </configuration>  
   </plugin>
+	    <plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.19</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					  <excludes>
+            <exclude>**/perf/PerformanceTest.java</exclude>
+          </excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+	    
+	    
 	    
 	    
 	    
