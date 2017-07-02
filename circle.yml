@@ -1,3 +1,7 @@
+
 test:
+pre:
+override:
+    - "true"
  post:
    - nosetests
