@@ -190,7 +190,7 @@ CSV files of various types.
                 <!-- Never skip running the tests when the test phase is invoked -->
                 <skip>false</skip>
 	        <includes>
-                    <include>**/*Tests.java</include>
+                    <include>**/*Test.java</include>
 		    <include>**/Test*.java</include>
 		    <include>**/When*.java</include>
 		    <include>**/*TestSuite.java</include>
