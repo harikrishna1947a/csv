@@ -16,7 +16,7 @@
  */
 
 package org.apache.commons.csv;
-
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.apache.commons.csv.CSVFormat.RFC4180;
 import static org.apache.commons.csv.Constants.CR;
 import static org.apache.commons.csv.Constants.CRLF;
@@ -44,6 +44,13 @@ import org.junit.Test;
  * @version $Id$
  */
 public class CSVFormatTest {
+    
+    @Before
+	public void init() {
+		assertThat("The PODAM factory cannot be null!",
+				factory, not(nullValue()));
+		assertThat("The factory strategy cannot be null!",
+factory.getStrategy(), not(nullValue()));
 
     private static void assertNotEquals(final Object right, final Object left) {
         assertFalse(right.equals(left));
