@@ -6,7 +6,9 @@ this work for additional information regarding copyright ownership.
 The ASF licenses this file to You under the Apache License, Version 2.0
 (the "License"); you may not use this file except in compliance with
 the License.  You may obtain a copy of the License at
+
      http://www.apache.org/licenses/LICENSE-2.0
+
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -169,42 +171,15 @@ CSV files of various types.
           <tarLongFileMode>gnu</tarLongFileMode>
         </configuration>
       </plugin>
-      
-	   
-	  <plugin>
-    <!-- Separates the unit tests from the integration tests. -->
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <configuration>
-       <!-- Skip the default running of this plug-in -->
-       <skip>true</skip>
-    </configuration>
-    <executions>
-       <execution>
-          <id>unit-tests</id>
-          <phase>test</phase>
-          <goals>
-             <goal>test</goal>
-          </goals>
-          <configuration>
-                <!-- Never skip running the tests when the test phase is invoked -->
-                <skip>false</skip>
-	        <includes>
-                    <include>**/CSVFormatTest.java</include>
-		    <include>**/Test*.java</include>
-		    <include>**/When*.java</include>
-		    <include>**/*TestSuite.java</include>
-             </includes>
-            <excludes>
-               <exclude>**/perf/PerformanceTest.java</exclude>
-            </excludes>
-          </configuration>
-       </execution>
-       
-    </executions>
-  </plugin>    
-	    
-	    
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/perf/PerformanceTest.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
       <!-- Allow checkstyle to be run interactively; keep in sync with report config below -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
