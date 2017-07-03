@@ -146,7 +146,6 @@ import java.util.Set;
  * @version $Id$
  */
 public final class CSVFormat implements Serializable {
-    	    System.out.println( "Hello World! test112" );
 
     /**
      * Predefines formats.
@@ -154,7 +153,7 @@ public final class CSVFormat implements Serializable {
      * @since 1.2
      */
     public static enum Predefined {
-	    System.out.println( "Hello World! test113" );
+
         /**
          * @see CSVFormat#DEFAULT
          */
@@ -183,7 +182,6 @@ public final class CSVFormat implements Serializable {
         private final CSVFormat format;
 
         private Predefined(CSVFormat format) {
-            	    System.out.println( "Hello World! test114" );
             this.format = format;
         }
         
@@ -193,11 +191,9 @@ public final class CSVFormat implements Serializable {
          * @return the format.
          */
         public CSVFormat getFormat() {
-            	    System.out.println( "Hello World! test115" );
             return format;
         }
     };
-    	    System.out.println( "Hello World! test116" );
     
     private static final long serialVersionUID = 1L;
 
@@ -214,7 +210,7 @@ public final class CSVFormat implements Serializable {
     private final String[] header; // array of header column names
     private final String[] headerComments; // array of header comment lines
     private final boolean skipHeaderRecord;
-	    System.out.println( "Hello World! test117" );
+
     /**
      * Standard comma separated format, as for {@link #RFC4180} but allowing empty lines.
      *
@@ -231,7 +227,6 @@ public final class CSVFormat implements Serializable {
      */
     public static final CSVFormat DEFAULT = new CSVFormat(COMMA, DOUBLE_QUOTE_CHAR, null, null, null, false, true,
             CRLF, null, null, null, false, false);
-    	    System.out.println( "Hello World! test118" );
 
     /**
      * Comma separated format as defined by <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>.
@@ -366,7 +361,6 @@ public final class CSVFormat implements Serializable {
      * @see #TDF
      */
     public static CSVFormat newFormat(final char delimiter) {
-        System.out.println( "Hello World! test119" );
         return new CSVFormat(delimiter, null, null, null, null, false, false, null, null, null, null, false, false);
     }
 
@@ -449,7 +443,6 @@ public final class CSVFormat implements Serializable {
 
     @Override
     public boolean equals(final Object obj) {
-        System.out.println( "Hello World! test120" );
         if (this == obj) {
             return true;
         }
@@ -525,7 +518,6 @@ public final class CSVFormat implements Serializable {
      * @return the formatted values
      */
     public String format(final Object... values) {
-        System.out.println( "Hello World! test121" );
         final StringWriter out = new StringWriter();
         try {
             new CSVPrinter(out, this).printRecord(values);
@@ -664,7 +656,6 @@ public final class CSVFormat implements Serializable {
 
     @Override
     public int hashCode() {
-        System.out.println( "Hello World! test122" );
         final int prime = 31;
         int result = 1;
 
@@ -756,7 +747,6 @@ public final class CSVFormat implements Serializable {
 
     @Override
     public String toString() {
-        System.out.println( "Hello World! test123" );
         final StringBuilder sb = new StringBuilder();
         sb.append("Delimiter=<").append(delimiter).append('>');
         if (isEscapeCharacterSet()) {
@@ -803,7 +793,6 @@ public final class CSVFormat implements Serializable {
      * @throws IllegalArgumentException
      */
     private void validate() throws IllegalArgumentException {
-        System.out.println( "Hello World! test124" );
         for (int i=0; i<20; i++) {
             System.out.print('.');
             try {
@@ -844,7 +833,7 @@ public final class CSVFormat implements Serializable {
         if (escapeCharacter == null && quoteMode == QuoteMode.NONE) {
             throw new IllegalArgumentException("No quotes mode set but no escape character is set");
         }
-        System.out.println( "Hello World! test125" );
+        
         // validate header
         if (header != null) {
             final Set<String> dupCheck = new HashSet<String>();
@@ -869,7 +858,6 @@ public final class CSVFormat implements Serializable {
      *             thrown if the specified character is a line break
      */
     public CSVFormat withCommentMarker(final char commentMarker) {
-        System.out.println( "Hello World! test126);
         return withCommentMarker(Character.valueOf(commentMarker));
     }
 
@@ -885,7 +873,6 @@ public final class CSVFormat implements Serializable {
      *             thrown if the specified character is a line break
      */
     public CSVFormat withCommentMarker(final Character commentMarker) {
-        System.out.println( "Hello World! test127);
         if (isLineBreak(commentMarker)) {
             throw new IllegalArgumentException("The comment start marker character cannot be a line break");
         }
@@ -904,7 +891,6 @@ public final class CSVFormat implements Serializable {
      *             thrown if the specified character is a line break
      */
     public CSVFormat withDelimiter(final char delimiter) {
-        System.out.println( "Hello World! test129);
         if (isLineBreak(delimiter)) {
             throw new IllegalArgumentException("The delimiter cannot be a line break");
         }
@@ -967,7 +953,6 @@ public final class CSVFormat implements Serializable {
      * @see #withSkipHeaderRecord(boolean)
      */
     public CSVFormat withHeader(final String... header) {
-        System.out.println( "Hello World! test131);
         return new CSVFormat(delimiter, quoteCharacter, quoteMode, commentMarker, escapeCharacter,
                 ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, headerComments, header,
                 skipHeaderRecord, allowMissingColumnNames);
@@ -1028,7 +1013,6 @@ public final class CSVFormat implements Serializable {
      * @since 1.1
      */
     public CSVFormat withHeader(final ResultSetMetaData metaData) throws SQLException {
-        System.out.println( "Hello World! test132);
         String[] labels = null;
         if (metaData != null) {
             final int columnCount = metaData.getColumnCount();
@@ -1096,7 +1080,6 @@ public final class CSVFormat implements Serializable {
      * @since 1.1
      */
     public CSVFormat withIgnoreEmptyLines() {
-        System.out.println( "Hello World! test133);
         return this.withIgnoreEmptyLines(true);
     }
 
@@ -1109,7 +1092,6 @@ public final class CSVFormat implements Serializable {
      * @return A new CSVFormat that is equal to this but with the specified empty line skipping behavior.
      */
     public CSVFormat withIgnoreEmptyLines(final boolean ignoreEmptyLines) {
-        System.out.println( "Hello World! test135);
         return new CSVFormat(delimiter, quoteCharacter, quoteMode, commentMarker, escapeCharacter,
                 ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, headerComments, header,
                 skipHeaderRecord, allowMissingColumnNames);
@@ -1123,7 +1105,6 @@ public final class CSVFormat implements Serializable {
      * @since 1.1
      */
     public CSVFormat withIgnoreSurroundingSpaces() {
-        System.out.println( "Hello World! test136);
         return this.withIgnoreSurroundingSpaces(true);
     }
 
@@ -1136,7 +1117,6 @@ public final class CSVFormat implements Serializable {
      * @return A new CSVFormat that is equal to this but with the specified trimming behavior.
      */
     public CSVFormat withIgnoreSurroundingSpaces(final boolean ignoreSurroundingSpaces) {
-        System.out.println( "Hello World! test137);
         return new CSVFormat(delimiter, quoteCharacter, quoteMode, commentMarker, escapeCharacter,
                 ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, headerComments, header,
                 skipHeaderRecord, allowMissingColumnNames);
@@ -1241,7 +1221,6 @@ public final class CSVFormat implements Serializable {
      *             if recordSeparator is none of CR, LF or CRLF
      */
     public CSVFormat withRecordSeparator(final String recordSeparator) {
-        System.out.println( "Hello World! test138);
         return new CSVFormat(delimiter, quoteCharacter, quoteMode, commentMarker, escapeCharacter,
                 ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, headerComments, header,
                 skipHeaderRecord, allowMissingColumnNames);
@@ -1269,7 +1248,6 @@ public final class CSVFormat implements Serializable {
      * @see #withHeader(String...)
      */
     public CSVFormat withSkipHeaderRecord(final boolean skipHeaderRecord) {
-        System.out.println( "Hello World! test139); 
         return new CSVFormat(delimiter, quoteCharacter, quoteMode, commentMarker, escapeCharacter,
                 ignoreSurroundingSpaces, ignoreEmptyLines, recordSeparator, nullString, headerComments, header,
                 skipHeaderRecord, allowMissingColumnNames);
