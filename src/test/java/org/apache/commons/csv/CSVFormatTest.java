@@ -167,23 +167,11 @@ public class CSVFormatTest {
         assertNotEquals(right, left);
     }
 
-    @Test
-    public void testEqualsIgnoreSurroundingSpaces() {
-	    System.out.println( "Hello World! test11" );
-        final CSVFormat right = CSVFormat.newFormat('\'')
-                .withCommentMarker('#')
-                .withEscape('+')
-                .withIgnoreSurroundingSpaces()
-                .withQuote('"')
-                .withQuoteMode(QuoteMode.ALL);
-        final CSVFormat left = right
-                .withIgnoreSurroundingSpaces(false);
-
-        assertNotEquals(right, left);
-    }
+   
 
     @Test
     public void testEqualsQuoteChar() {
+	      System.out.println( "Hello World! test31" );
         final CSVFormat right = CSVFormat.newFormat('\'').withQuote('"');
         final CSVFormat left = right.withQuote('!');
 
@@ -192,6 +180,7 @@ public class CSVFormatTest {
 
     @Test
     public void testEqualsQuotePolicy() {
+	      System.out.println( "Hello World! test32" );
         final CSVFormat right = CSVFormat.newFormat('\'')
                 .withQuote('"')
                 .withQuoteMode(QuoteMode.ALL);
@@ -203,6 +192,7 @@ public class CSVFormatTest {
 
     @Test
     public void testEqualsRecordSeparator() {
+	      System.out.println( "Hello World! test33" );
         final CSVFormat right = CSVFormat.newFormat('\'')
                 .withRecordSeparator(CR)
                 .withCommentMarker('#')
@@ -256,11 +246,13 @@ public class CSVFormatTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testEscapeSameAsCommentStartThrowsException() {
+	      System.out.println( "Hello World! test34" );
         CSVFormat.DEFAULT.withEscape('!').withCommentMarker('!');
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testEscapeSameAsCommentStartThrowsExceptionForWrapperType() {
+	      System.out.println( "Hello World! test35" );
         // Cannot assume that callers won't use different Character objects
         CSVFormat.DEFAULT.withEscape(new Character('!')).withCommentMarker(new Character('!'));
     }
@@ -291,6 +283,7 @@ public class CSVFormatTest {
 
     @Test
     public void testNullRecordSeparatorCsv106() {
+	      System.out.println( "Hello World! test36" );
         final CSVFormat format = CSVFormat.newFormat(';').withSkipHeaderRecord().withHeader("H1", "H2");
         final String formatStr = format.format("A", "B");
         assertNotNull(formatStr);
@@ -299,22 +292,26 @@ public class CSVFormatTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testQuoteCharSameAsCommentStartThrowsException() {
+	      System.out.println( "Hello World! test37" );
         CSVFormat.DEFAULT.withQuote('!').withCommentMarker('!');
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType() {
+	      System.out.println( "Hello World! test38" );
         // Cannot assume that callers won't use different Character objects
         CSVFormat.DEFAULT.withQuote(new Character('!')).withCommentMarker('!');
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testQuoteCharSameAsDelimiterThrowsException() {
+	      System.out.println( "Hello World! test39" );
         CSVFormat.DEFAULT.withQuote('!').withDelimiter('!');
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testQuotePolicyNoneWithoutEscapeThrowsException() {
+	      System.out.println( "Hello World! test40" );
         CSVFormat.newFormat('!').withQuoteMode(QuoteMode.NONE);
     }
 
@@ -375,17 +372,20 @@ public class CSVFormatTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testWithDelimiterLFThrowsException() {
+	      System.out.println( "Hello World! test41" );
         CSVFormat.DEFAULT.withDelimiter(LF);
     }
 
     @Test
     public void testWithEscape() throws Exception {
+	      System.out.println( "Hello World! test42" );
         final CSVFormat formatWithEscape = CSVFormat.DEFAULT.withEscape('&');
         assertEquals(Character.valueOf('&'), formatWithEscape.getEscapeCharacter());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testWithEscapeCRThrowsExceptions() {
+	      System.out.println( "Hello World! test43" );
         CSVFormat.DEFAULT.withEscape(CR);
     }
 
